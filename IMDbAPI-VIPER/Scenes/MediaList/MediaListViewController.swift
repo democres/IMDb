@@ -43,17 +43,17 @@ extension MediaListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medias?.search.count ?? 0
+        return medias?.search?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let title: String = medias?.search[indexPath.row].title ?? ""
-        let type: String = medias?.search[indexPath.row].type ?? ""
-        let imageURL: String = medias?.search[indexPath.row].poster ?? ""
-        
+//        let title: String = medias?.search[indexPath.row].title ?? ""
+////        let type: String = medias?.search[indexPath.row].type ?? ""
+//        let imageURL: String = medias?.search[indexPath.row].poster ?? ""
+//        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MediaListTableViewCell
         
-        cell.setView(title: title, type: type, imageURL: imageURL)
+//        cell.setView(title: title, type: type, imageURL: imageURL)
         
         return cell
     }

@@ -46,6 +46,44 @@
                                     <action selector="filtersButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QqR-7F-c0U"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drx-I3-dd8">
+                                <rect key="frame" x="5" y="270" width="365" height="343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqZ-8m-s4R">
+                                    <size key="itemSize" width="97" height="124"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieGridCell" id="eBf-U1-bVT" customClass="MovieGridCell" customModule="IMDbAPI_VIPER" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aog-AP-nxV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="124"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Aog-AP-nxV" firstAttribute="leading" secondItem="eBf-U1-bVT" secondAttribute="leading" id="JYH-bA-PUA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Aog-AP-nxV" secondAttribute="trailing" id="NDt-Bn-hF7"/>
+                                            <constraint firstAttribute="bottom" secondItem="Aog-AP-nxV" secondAttribute="bottom" id="Y3I-bP-5O5"/>
+                                            <constraint firstItem="Aog-AP-nxV" firstAttribute="top" secondItem="eBf-U1-bVT" secondAttribute="top" id="vmy-GO-IrN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="Aog-AP-nxV" id="i1c-kJ-0Aw"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tFL-bd-EoU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VVm-0F-TxY"/>
+                                </connections>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPQ-3Z-qxx" customClass="RoundedView" customModule="IMDbAPI_VIPER" customModuleProvider="target">
                                 <rect key="frame" x="20" y="270" width="335" height="128"/>
                                 <subviews>
@@ -168,9 +206,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJo-kc-6gF">
-                                <rect key="frame" x="327" y="180.5" width="35" height="35"/>
+                                <rect key="frame" x="330" y="185" width="26" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="oo9-f0-Xzj"/>
+                                    <constraint firstAttribute="height" constant="26" id="oo9-f0-Xzj"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="search"/>
                                 <connections>
@@ -183,14 +221,17 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="s5O-Gm-4uQ" secondAttribute="bottom" id="12q-gp-so9"/>
                             <constraint firstItem="gPQ-3Z-qxx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="45b-q7-yda"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AJo-kc-6gF" secondAttribute="trailing" constant="13" id="Cct-b9-86Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AJo-kc-6gF" secondAttribute="trailing" constant="19" id="Cct-b9-86Q"/>
                             <constraint firstItem="4RF-Sq-xTc" firstAttribute="top" secondItem="Ebb-Wi-3QG" secondAttribute="bottom" constant="18" id="F66-8k-Lmi"/>
+                            <constraint firstItem="drx-I3-dd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="KhV-6Q-rzc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4RF-Sq-xTc" secondAttribute="trailing" constant="56" id="L2E-vv-vlU"/>
                             <constraint firstItem="k9W-Su-EEC" firstAttribute="top" secondItem="4RF-Sq-xTc" secondAttribute="bottom" constant="15" id="OP7-JX-WZM"/>
                             <constraint firstItem="AJo-kc-6gF" firstAttribute="centerY" secondItem="4RF-Sq-xTc" secondAttribute="centerY" id="PYi-3J-6s3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s5O-Gm-4uQ" secondAttribute="trailing" id="R4t-1e-90j"/>
                             <constraint firstItem="s5O-Gm-4uQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UcO-1O-t4k"/>
-                            <constraint firstItem="AJo-kc-6gF" firstAttribute="leading" secondItem="4RF-Sq-xTc" secondAttribute="trailing" constant="8" id="X9q-Dq-1U6"/>
+                            <constraint firstItem="AJo-kc-6gF" firstAttribute="leading" secondItem="4RF-Sq-xTc" secondAttribute="trailing" constant="11" id="X9q-Dq-1U6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="drx-I3-dd8" secondAttribute="trailing" constant="5" id="XHy-qr-vM4"/>
+                            <constraint firstItem="drx-I3-dd8" firstAttribute="top" secondItem="k9W-Su-EEC" secondAttribute="bottom" constant="10" id="def-2k-H5N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ebb-Wi-3QG" secondAttribute="trailing" constant="20" id="h8b-n7-MMl"/>
                             <constraint firstItem="Ebb-Wi-3QG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iXn-CM-VYb"/>
                             <constraint firstItem="4RF-Sq-xTc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lqu-5K-Tq7"/>
@@ -198,6 +239,7 @@
                             <constraint firstItem="gPQ-3Z-qxx" firstAttribute="top" secondItem="k9W-Su-EEC" secondAttribute="bottom" constant="10" id="pgM-qh-x45"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gPQ-3Z-qxx" secondAttribute="trailing" constant="20" id="vGp-5a-d2e"/>
                             <constraint firstItem="Ebb-Wi-3QG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="z82-r4-f3V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="drx-I3-dd8" secondAttribute="bottom" constant="5" id="zcP-AM-5wp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -206,6 +248,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="search" systemItem="search" id="E66-hg-GdR"/>
                     <connections>
+                        <outlet property="collectionView" destination="drx-I3-dd8" id="SZC-4j-vBj"/>
                         <outlet property="filterView" destination="gPQ-3Z-qxx" id="OcI-Sp-uhD"/>
                         <outlet property="pickerContentView" destination="s5O-Gm-4uQ" id="24I-yC-6Md"/>
                         <outlet property="pickerView" destination="rCz-jE-uUT" id="6kP-sh-VqJ"/>

@@ -10,11 +10,17 @@ import Moya
 
 enum IMDbAPIService {
     case search(title: String, type: String?, year: String?)
+    case allMoviesRequest
 }
 
 extension IMDbAPIService: TargetType {
     var baseURL: URL {
-        return URL(string: "http://www.omdbapi.com/")!
+        switch self {
+        case .search:
+            return URL(string: "http://www.omdbapi.com/")!
+        case .allMoviesRequest:
+            return URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc")!
+        }
     }
     
     var path: String {
@@ -24,6 +30,8 @@ extension IMDbAPIService: TargetType {
     var method: Method {
         switch self {
         case .search:
+            return .get
+        case .allMoviesRequest:
             return .get
         }
     }
@@ -50,6 +58,21 @@ extension IMDbAPIService: TargetType {
             if let year = year {
                 parameters["y"] = year
             }
+            
+            return parameters
+            
+        case .allMoviesRequest:
+            var parameters = [String:Any]()
+            parameters["api_key"] = "b9789908d0c93be753492f01b3b22c23"
+//            parameters["s"] = title
+            
+//            if let type = type{
+//                parameters["type"] = type
+//            }
+//
+//            if let year = year {
+//                parameters["y"] = year
+//            }
             
             return parameters
         }

@@ -19,6 +19,7 @@ protocol SeachViewProtocol: class {
 protocol SearchInteractorProtocol: class {
     var delegate: SearchInteractorDelegate? { get set }
     func load(title: String, type: String?, year: String?)
+    func loadMovies()
     func getYearDatas()
     func getTypeDatas()
 }
@@ -30,6 +31,7 @@ protocol SearchInteractorDelegate: class {
 enum SearchInteractorOutput {
     case setLoading(Bool)
     case getMediaList(SearchModel)
+    case allMovies([Media])
     case showYears([String])
     case showTypes([String])
 }
@@ -38,6 +40,7 @@ enum SearchInteractorOutput {
 
 protocol SearchPresenterProtocol: class {
     func load(title: String, type: String?, year: String?)
+    func loadMovies()
     func getYearDatas()
     func getTypeDatas()
     func validateNameField(name: String?)
@@ -48,6 +51,7 @@ enum SearchPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
     case getMediaList(SearchModel)
+    case allMovies([Media])
     case showYears([String])
     case showTypes([String])
     case isValidName(Bool)

@@ -9,7 +9,7 @@
 import Foundation
 
 struct SearchModel {
-    let search: [Media]
+    let search: [Media]?
 }
 
 extension SearchModel: Decodable {
@@ -19,7 +19,7 @@ extension SearchModel: Decodable {
     
     init(from decoder : Decoder) throws {
         let container = try decoder.container(keyedBy: SearchModelCodingKeys.self)
-        
-        search = try container.decode([Media].self, forKey: .search)
+        search = nil
     }
 }
+

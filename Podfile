@@ -7,6 +7,9 @@ target 'IMDbAPI-VIPER' do
 
 pod 'Moya'
 pod 'Kingfisher'
+pod 'AlamofireImage', '~> 3.5'
+pod 'ObjectMapper', '~> 3.4'
+pod 'AlamofireImage', '~> 3.5'
 
   # Pods for IMDbAPI-VIPER
 

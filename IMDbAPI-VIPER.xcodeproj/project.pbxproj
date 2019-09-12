@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		278AD3FC2327D05B001074FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FB2327D05B001074FE /* MainViewController.swift */; };
 		278AD3FE2327D067001074FE /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD3FD2327D067001074FE /* MainViewPresenter.swift */; };
+		278AD4032327ED92001074FE /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278AD4022327ED92001074FE /* MovieGridCell.swift */; };
 		C35F5D3D8CCEC3C20EBEF02C /* Pods_IMDbAPI_VIPER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B413101F45F9CBA2D0D33C1 /* Pods_IMDbAPI_VIPER.framework */; };
 		EA363BCE228EC0C00050F9B6 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA363BCD228EC0C00050F9B6 /* SearchModel.swift */; };
 		EA363BD0228EC0C60050F9B6 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA363BCF228EC0C60050F9B6 /* Media.swift */; };
@@ -39,6 +40,7 @@
 		2754144A2327C7E500388B24 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		278AD3FB2327D05B001074FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		278AD3FD2327D067001074FE /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		278AD4022327ED92001074FE /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		6B413101F45F9CBA2D0D33C1 /* Pods_IMDbAPI_VIPER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMDbAPI_VIPER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74265E5B8D63B34C07DAD4C7 /* Pods-IMDbAPI-VIPER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.release.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.release.xcconfig"; sourceTree = "<group>"; };
 		939B35CDFD51C6550D09841D /* Pods-IMDbAPI-VIPER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDbAPI-VIPER.debug.xcconfig"; path = "Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 				278AD3FD2327D067001074FE /* MainViewPresenter.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		278AD4012327ED78001074FE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				278AD4022327ED92001074FE /* MovieGridCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		C697314A47ED47E66A421A6E /* Frameworks */ = {
@@ -230,6 +240,7 @@
 		EA84A5F8228EA5E4009E7955 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				278AD4012327ED78001074FE /* UI */,
 				EA84A5E2228EA4EA009E7955 /* Search.storyboard */,
 				EA84A5E0228EA4EA009E7955 /* SearchViewController.swift */,
 				EA84A602228EA98D009E7955 /* SearchBuilder.swift */,
@@ -373,8 +384,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IMDbAPI-VIPER/Pods-IMDbAPI-VIPER-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -382,8 +395,10 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +427,7 @@
 				EA84A601228EA8A5009E7955 /* RoundedView.swift in Sources */,
 				EA84A607228EA9A9009E7955 /* SearchInteractor.swift in Sources */,
 				EA84A603228EA98D009E7955 /* SearchBuilder.swift in Sources */,
+				278AD4032327ED92001074FE /* MovieGridCell.swift in Sources */,
 				EA84A5DF228EA4EA009E7955 /* AppDelegate.swift in Sources */,
 				EA84A5FE228EA7AC009E7955 /* BaseNavigationController.swift in Sources */,
 				EACE2BFB229692AF00B2BFA1 /* MediaListTableViewCell.swift in Sources */,

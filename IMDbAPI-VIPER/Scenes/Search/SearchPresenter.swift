@@ -38,6 +38,10 @@ final class SearchPresenter: SearchPresenterProtocol {
         interactor.load(title: title, type: type, year: year)
     }
     
+    func loadMovies() {
+        interactor.loadMovies()
+    }
+    
     func validateNameField(name: String?) {
         if let name = name {
             if name.count > 0 {
@@ -60,6 +64,8 @@ extension SearchPresenter: SearchInteractorDelegate {
         switch output {
         case .setLoading(let isLoading):
             view.handleOutput(.setLoading(isLoading))
+        case .allMovies(let movies):
+            view.handleOutput(.allMovies(movies))
         case .getMediaList(let medias):
             view.handleOutput(.getMediaList(medias))
         case .showYears(let years):
