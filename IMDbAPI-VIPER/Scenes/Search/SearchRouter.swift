@@ -18,8 +18,8 @@ final class SearchRouter: SearchRouterProtocol {
     
     func navigate(to route: SearchRoute) {
         switch route {
-        case .list(let searchModel):
-            let listView = MediaListBuilder.make(media: searchModel)
+        case .list(let mediaArray):
+            let listView = MediaListBuilder.make(media: mediaArray)
             view.show(listView, sender: nil)
         }
     }

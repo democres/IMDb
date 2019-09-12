@@ -24,6 +24,6 @@ class MediaListTableViewCell: UITableViewCell {
     func setView(title: String, type: String, imageURL: String) {
         titleLabel.text = title
         typeLabel.text = type
-        mediaImageView.kf.setImage(with: URL(string: imageURL))
+        mediaImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL))
     }
 }

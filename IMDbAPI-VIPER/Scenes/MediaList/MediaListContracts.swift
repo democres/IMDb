@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: View
 protocol MediaListViewProtocol: class {
-    func update(presentation: SearchModel)
+    func update(presentation: [Media])
 }
 
 // MARK: Presenter

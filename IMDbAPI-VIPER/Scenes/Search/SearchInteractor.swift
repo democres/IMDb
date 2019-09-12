@@ -37,30 +37,40 @@ class SearchInteractor: SearchInteractorProtocol {
     }
     
     func load(title: String, type: String?, year: String?) {
-//        delegate?.handleOutput(.setLoading(true))
-//        
-//        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
-//        let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
-//        
-//        provider.request(.search(title: title, type: type, year: year)) { [weak self] response in
-//            guard let self = self else { return }
-//            self.delegate?.handleOutput(.setLoading(false))
-//            
-//            switch response {
-//            case .success(let value):
-//                let data = value.data
-//                
-//                do {
-//                    let results = try JSONDecoder().decode(SearchModel.self, from: data)
-//                    self.delegate?.handleOutput(.getMediaList(results))
-//                } catch let error {
-//                    print(error)
-//                }
-//                
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        delegate?.handleOutput(.setLoading(true))
+        
+        let pluginsArray:[PluginType] = [NetworkLoggerPlugin(cURL: true)]
+        let provider = MoyaProvider<IMDbAPIService>(plugins: pluginsArray)
+        
+        provider.request(.search(title: title, type: type, year: year)) { [weak self] response in
+            guard let self = self else { return }
+            self.delegate?.handleOutput(.setLoading(false))
+            
+            switch response {
+            case .success(let value):
+                let data = value.data
+                
+                do {
+                    
+                    let dataAux = try JSONSerialization.jsonObject(with: data, options: [])
+                    if let json = dataAux as? [String: Any] {
+                        print(json)
+                        if let results = json["results"] as? [[String: Any]] {
+                            if let mediaArray = Mapper<Media>().mapArray(JSONObject: results){
+                                print(mediaArray[0].title)
+                                self.delegate?.handleOutput(.getMediaList(mediaArray))
+                            }
+                        }
+                    }
+                    
+                } catch let error {
+                    print(error)
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         
         
@@ -92,8 +102,6 @@ class SearchInteractor: SearchInteractorProtocol {
                             }
                         }
                     }
-                    
-//                    let results = try JSONDecoder().decode(AllMoviesModel.self, from: data)
                     
                 } catch let error {
                     print(error)

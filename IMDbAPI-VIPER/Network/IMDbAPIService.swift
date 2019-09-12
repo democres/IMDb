@@ -17,7 +17,7 @@ extension IMDbAPIService: TargetType {
     var baseURL: URL {
         switch self {
         case .search:
-            return URL(string: "http://www.omdbapi.com/")!
+            return URL(string: "https://api.themoviedb.org/3/search/movie")!
         case .allMoviesRequest:
             return URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc")!
         }
@@ -47,9 +47,10 @@ extension IMDbAPIService: TargetType {
     var parameters: [String : Any] {
         switch self {
         case .search(let title, let type, let year):
+            
             var parameters = [String:Any]()
-            parameters["apikey"] = "fb85c6a1"
-            parameters["s"] = title
+            parameters["api_key"] = "b9789908d0c93be753492f01b3b22c23"
+            parameters["query"] = title
             
             if let type = type{
                 parameters["type"] = type
@@ -64,16 +65,7 @@ extension IMDbAPIService: TargetType {
         case .allMoviesRequest:
             var parameters = [String:Any]()
             parameters["api_key"] = "b9789908d0c93be753492f01b3b22c23"
-//            parameters["s"] = title
-            
-//            if let type = type{
-//                parameters["type"] = type
-//            }
-//
-//            if let year = year {
-//                parameters["y"] = year
-//            }
-            
+
             return parameters
         }
     }

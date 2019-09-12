@@ -11,9 +11,9 @@ import UIKit
 class MediaListPresenter {
 
     weak private var view: MediaListViewProtocol?
-    private let media: SearchModel
+    private let media: [Media]
 
-    init(view: MediaListViewProtocol, media: SearchModel) {
+    init(view: MediaListViewProtocol, media: [Media]) {
         self.view = view
         self.media = media
     }

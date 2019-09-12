@@ -9,7 +9,7 @@
 import UIKit
 
 class MediaListBuilder {
-    static func make(media: SearchModel) -> MediaListViewController {
+    static func make(media: [Media]) -> MediaListViewController {
         let storyBoard = UIStoryboard(name: "MediaList", bundle: nil)
         let view: MediaListViewController = storyBoard.instantiateViewController(withIdentifier: "MediaListViewController") as! MediaListViewController
         let presenter = MediaListPresenter(view: view, media: media)

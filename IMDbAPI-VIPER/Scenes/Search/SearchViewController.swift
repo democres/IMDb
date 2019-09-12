@@ -324,12 +324,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let movie = self.mediaArray?[indexPath.item]
         
         let baseUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + (movie?.poster ?? ""))
-        
-        
-//        let posterPath = movie["poster_path"] as! String
-//        let posterUrl = URL(string: baseUrl + posterPath)
-        
-//        cell.postImage?.image = UIImage(named: "search")
+
         cell.posterImageView?.af_setImage(withURL: baseUrl!)
         
         return cell
